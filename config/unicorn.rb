@@ -26,8 +26,8 @@ working_directory APP_PATH
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
-#listen "/tmp/med.sock", :backlog => 1024
-listen 8080, :tcp_nopush => true
+listen "/tmp/med.sock", :backlog => 1024
+#listen 8080, :tcp_nopush => true
 
 # nuke workers after 60 seconds (the default)
 timeout 60
