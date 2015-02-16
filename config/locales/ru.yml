@@ -10,6 +10,7 @@ ru:
         pics: Фото
       cat:
         name: Название
+        cat_id: "Родительская категория"
       pic:
         image: Фото
     models:

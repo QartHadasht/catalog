@@ -19,6 +19,16 @@ ActiveAdmin.register Cat do
   #   permitted
   # end
 
+  form do |f|
+    f.inputs "Категория" do
+      f.input :cat_id, :as => :select, :collection => Cat.all.collect {|cat| [cat.name, cat.id] }.prepend(['', 0]), :include_blank => false
+      f.input :name
+    end
+
+    f.actions
+  end
+
+
   index do
     id_column
     column :Название do |cat|
