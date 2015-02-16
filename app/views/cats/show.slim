@@ -1,0 +1,6 @@
+.row.tiles
+  - @tovars.each do |tovar|
+    .tile.col-sm-6.col-md-4.col-lg-3
+      a.thumbnail href=(tovar_path(tovar))
+        = image_tag tovar.pics.first.image.url
+        = tovar.name

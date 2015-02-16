@@ -1,0 +1,8 @@
+.panel.panel-default
+  .panel-heading
+    h3.panel-title Каталог
+  .panel-body 
+    ul.catalog_menu
+      - cats.each do |cat|
+        li class=("catalog_menu_item#{(cat.fold+1)}")
+          = link_to cat.name, cat_path(cat)
