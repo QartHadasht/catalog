@@ -3,9 +3,9 @@ require "rvm/capistrano"
 require "bundler/capistrano"
 
 set :rvm_type, :user 
-set :use_sudo,    false
+set :use_sudo,  false
 set :application, "med"
-set :repository,  "ssh://hs@188.166.51.156/home/hs/git/med.git"
+set :repository,  "git@github.com:kormushka/catalog.git"
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`

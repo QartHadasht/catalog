@@ -32,10 +32,12 @@ gem "paperclip", "~> 4.2"
 gem "breadcrumbs_on_rails"
 gem "russian"
 gem "nokogiri"
-gem "breadcrumbs_on_rails"
 
 # Use Capistrano for deployment
-gem 'capistrano-rails', group: :development
+#gem 'capistrano-rails', group: :development
+gem 'rvm-capistrano', "1.4.1"
+gem 'capistrano', "2.15.5"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
