@@ -33,6 +33,7 @@ set :default_stage, "staging"
 namespace :deploy do
   task :symlink_configs do
     run "ln -sf #{shared_path}/database.yml #{release_path}/config/database.yml"
+    run "ln -sf #{shared_path}/secrets.yml #{release_path}/config/secrets.yml"
   end
   
   task :symlink_data do
