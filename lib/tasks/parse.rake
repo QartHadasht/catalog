@@ -52,7 +52,7 @@ namespace :parse do
         if !Tovar.where(:oid => arr[:oid]).present?
           tovar = Tovar.new(arr)
           tovar.save
-          Pic.create({:tovar_id => tovar.id, :image => open(picurl)})
+          Pic.create({:tovar_id => tovar.id, :image => URI.parse(picurl)})
           #puts arr
         end
       end
