@@ -31,6 +31,7 @@ ActiveAdmin.register Tovar do
     f.inputs "Изделие" do
       f.input :cat_id, :as => :select, :collection => Cat.all.collect {|cat| [cat.name, cat.id] }.prepend(['', 0]), :include_blank => false
       f.input :name
+      f.input :description
       f.input :art
       f.input :price
     end

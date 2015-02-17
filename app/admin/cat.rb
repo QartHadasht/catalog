@@ -23,7 +23,7 @@ ActiveAdmin.register Cat do
     f.inputs "Категория" do
       f.input :cat_id, :as => :select, :collection => Cat.all.collect {|cat| [cat.name, cat.id] }.prepend(['', 0]), :include_blank => false
       f.input :name
-      f.input :active
+      f.input :active, :as => :boolean
     end
 
     f.actions
