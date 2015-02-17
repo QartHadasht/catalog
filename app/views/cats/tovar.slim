@@ -1,8 +1,9 @@
 h1 = @tovar.name
 .row.tovar
   .col-sm-5.col-lg-4
-    .thumbnail data-toggle="modal" data-target="#picModal"
-      = image_tag @tovar.pics.first.image.url
+    - if @tovar.pics.first.present?
+      .thumbnail data-toggle="modal" data-target="#picModal"
+        = image_tag @tovar.pics.first.image.url 
   .col-sm-7.col-lg-8
     .tovar_description = @tovar.description
     .tovar_price
@@ -19,6 +20,6 @@ h1 = @tovar.name
           span aria-hidden="true"  &times;
         h4#picModalLabel.modal-title = @tovar.name
       .modal-body
-        = image_tag @tovar.pics.first.image.url
+        = image_tag @tovar.pics.first.image.url if @tovar.pics.first.present?
       .modal-footer
         button.btn.btn-default data-dismiss="modal" type="button"  Закрыть
