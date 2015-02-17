@@ -9,7 +9,7 @@ ActiveAdmin.register Cat do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  # permit_params :list, :of, :attributes, :on, :model
+  permit_params :name, :cat_id, :active
   #
   # or
   #
@@ -23,6 +23,7 @@ ActiveAdmin.register Cat do
     f.inputs "Категория" do
       f.input :cat_id, :as => :select, :collection => Cat.all.collect {|cat| [cat.name, cat.id] }.prepend(['', 0]), :include_blank => false
       f.input :name
+      f.input :active
     end
 
     f.actions

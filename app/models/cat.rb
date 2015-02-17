@@ -1,5 +1,6 @@
 class Cat < ActiveRecord::Base
   before_save :count_fold
+  scope :active, -> { where(:active => true)}
   scope :root, -> {where(:cat_id => 0)}
   has_many :cats
   belongs_to :cat
