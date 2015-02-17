@@ -1,8 +1,29 @@
 .panel.panel-default
   .panel-heading
     h3.panel-title Каталог
+    = parents
   .panel-body 
-    ul.catalog_menu
+    div.catalog_menu
       - cats.each do |cat|
-        li class=("catalog_menu_item#{(cat.fold+1)}")
-          = link_to cat.name, cat_path(cat)
+        div class=("catalog_menu_item#{(cat.fold+1)}")
+          - if !cat.cats.present?
+            - if parents.last == cat.id
+              = cat.name
+            - else
+              = link_to cat.name, cat_path(cat)          
+          - else
+            .catalog_menu_src data-slide-src=("c#{cat.id}") = cat.name
+        div class="catalog_menu_cont" data-slide-dest=("c#{cat.id}")
+          - cat.childos.each do |scat|
+            div class=("catalog_menu_item#{(scat.fold+1)}")
+              - if parents.last == scat.id
+                = scat.name
+              - else
+                = link_to scat.name, cat_path(scat)
+
+javascript:
+  $(document).ready(function(){
+    var id = #{parents.first}
+    $("[data-slide-dest='c"+id+"']").show();
+  })
+

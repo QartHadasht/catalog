@@ -13,6 +13,9 @@ class Cat < ActiveRecord::Base
     getparents(self)
   end
 
+  def childos
+    return getchildren(self)[1..-1]
+  end
   private
   
   def count_fold
@@ -31,6 +34,15 @@ class Cat < ActiveRecord::Base
       ids = getchildids(ids, one.id)
     end
     return ids + [id]
+  end
+
+
+  def getchildren(cur, arr =[])
+    arr += [cur]
+    cur.cats.each do |one|
+      arr = getchildren(one, arr)
+    end
+    return arr
   end
 
   def getparents(cur, arr = [])

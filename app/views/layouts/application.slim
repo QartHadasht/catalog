@@ -14,5 +14,5 @@ body
         .breadcrumbs = render_breadcrumbs
         = yield
       .col-sm-3.col-sm-pull-9
-        = render 'home/catalog', :cats => catalog_list
+        = render 'home/catalog', :cats => catalog_list, :parents => parents_list
 
