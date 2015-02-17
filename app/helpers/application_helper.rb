@@ -5,6 +5,7 @@ module ApplicationHelper
 
   def parents_list
     return Tovar.find(params[:id]).cat.parents.map(&:id) + [Tovar.find(params[:id]).cat.id] if params[:action] == 'tovar'
-    return Cat.find(params[:id]).parents.map(&:id) + [Cat.find(params[:id]).id]
+    return Cat.find(params[:id]).parents.map(&:id) + [Cat.find(params[:id]).id] if ['show'].include?params[:action]
+    return []
   end
 end
