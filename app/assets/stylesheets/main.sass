@@ -13,9 +13,34 @@
 .catalog_menu_src
   color: #337ab7
   cursor: pointer
+  position: relative
+  &.catalog_menu_active
+    .catalog_menu_expand
+      color: #000
+      &:after
+        content: "\2212"
+
+  .catalog_menu_expand
+    position: absolute  
+    left: -23px
+    font-size: 12px
+    top: 3px
+    color: #ACA7C4
+    font-family: 'Glyphicons Halflings'
+    border: 1px dotted #ACA7C4
+    padding-left: 1px
+    transition: all 0.6s ease
+    background: #fff
+    &:after
+      content: "\2b"
+
 
 .catalog_menu_cont
   display: none
+
+
+
+
 
 .tiles
 
