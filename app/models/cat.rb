@@ -3,7 +3,7 @@ class Cat < ActiveRecord::Base
   #default_scope { order("position asc") }
   scope :active, -> { where(:active => true)}
   scope :root, -> {where(:cat_id => 0)}
-  has_many :cats
+  has_many :cats, -> { order 'position asc' }
   belongs_to :cat
   has_many :tovars
   acts_as_list scope: :cat_id
@@ -22,6 +22,8 @@ class Cat < ActiveRecord::Base
   end
   private
   
+
+
   def count_fold
     fold = 0
     cur = Cat.find(self.id)
@@ -30,6 +32,7 @@ class Cat < ActiveRecord::Base
       cur = cur.cat
     end
     self.fold = fold
+    #Cat.find(self.id).update_attributes(:fold => fold)
   end
 
   def getchildids(ids, id)

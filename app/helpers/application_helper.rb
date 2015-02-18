@@ -1,6 +1,6 @@
 module ApplicationHelper
   def catalog_list
-    @cats = Cat.active.where(:fold => 0).preload(:cats)
+    @cats = Cat.active.where(:fold => 0).order("position asc").preload(:cats).order("position asc")
   end
 
   def parents_list

@@ -7,6 +7,7 @@ ActiveAdmin.register Cat do
 
 
 
+
   config.sort_order = 'position_asc' # assumes you are using 'position' for your acts_as_list column
   config.paginate   = false # optional; drag-and-drop across pages is not supported
 
@@ -17,7 +18,7 @@ ActiveAdmin.register Cat do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :name, :cat_id, :active
+  permit_params :name, :cat_id, :active, :fold, :position
   #
   # or
   #
@@ -31,6 +32,7 @@ ActiveAdmin.register Cat do
     f.inputs "Категория" do
       f.input :cat_id, :as => :select, :collection => Cat.all.collect {|cat| [cat.name, cat.id] }.prepend(['', 0]), :include_blank => false
       f.input :name
+      f.input :position
       f.input :active, :as => :boolean
     end
 
@@ -40,7 +42,7 @@ ActiveAdmin.register Cat do
 
   index do
     id_column
-    sortable_handle_column
+    sortable_handle_column if params[:order] == 'position_asc'
     column :position
     column :Название do |cat|
       if cat.cats.present?

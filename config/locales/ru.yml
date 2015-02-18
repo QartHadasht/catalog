@@ -11,6 +11,7 @@ ru:
       cat:
         name: Название
         cat_id: "Родительская категория"
+        position: Позиция
         active: Активен?
       pic:
         image: Фото
