@@ -32,6 +32,8 @@ gem "paperclip", "~> 4.2"
 gem "breadcrumbs_on_rails"
 gem "russian"
 gem "nokogiri"
+gem 'acts_as_list'
+gem 'activeadmin-sortable'
 
 # Use Capistrano for deployment
 #gem 'capistrano-rails', group: :development

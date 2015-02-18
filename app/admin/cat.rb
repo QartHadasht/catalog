@@ -3,7 +3,15 @@ ActiveAdmin.register Cat do
     if params['q'].blank?
        params['q'] = {:cat_id_eq => 0}
     end
-  end
+  end 
+
+
+
+  config.sort_order = 'position_asc' # assumes you are using 'position' for your acts_as_list column
+  config.paginate   = false # optional; drag-and-drop across pages is not supported
+
+  sortable
+
 
 
   # See permitted parameters documentation:
@@ -32,6 +40,8 @@ ActiveAdmin.register Cat do
 
   index do
     id_column
+    sortable_handle_column
+    column :position
     column :Название do |cat|
       if cat.cats.present?
         link_to cat.name, :controller => "cats", :action => "index", 'q[cat_id_eq]' => "#{cat.id}".html_safe

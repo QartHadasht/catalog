@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217131431) do
+ActiveRecord::Schema.define(version: 20150218153631) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150217131431) do
     t.integer  "cat_id",     limit: 4,   default: 0
     t.integer  "oid",        limit: 4
     t.boolean  "active",     limit: 1,   default: true
+    t.integer  "position",   limit: 4
   end
 
   add_index "cats", ["cat_id"], name: "index_cats_on_cat_id", using: :btree

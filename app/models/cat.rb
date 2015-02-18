@@ -1,10 +1,13 @@
 class Cat < ActiveRecord::Base
-  before_save :count_fold
+  after_save :count_fold
+  #default_scope { order("position asc") }
   scope :active, -> { where(:active => true)}
   scope :root, -> {where(:cat_id => 0)}
   has_many :cats
   belongs_to :cat
   has_many :tovars
+  acts_as_list scope: :cat_id
+
 
   def children
     return getchildids([], self.id)
