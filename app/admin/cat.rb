@@ -41,8 +41,8 @@ ActiveAdmin.register Cat do
 
 
   index do
-    id_column
     sortable_handle_column if params[:order] == 'position_asc'
+    id_column
     column :position
     column :Название do |cat|
       if cat.cats.present?
