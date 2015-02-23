@@ -1,9 +1,7 @@
 - cache(cache_key_for_cats) do
   .panel.panel-default
     .panel-heading
-      h3.panel-title 
-       ' Каталог 
-       = cache_key_for_cats
+      h3.panel-title Каталог 
     .panel-body.catalog_menu.list-group
       - cats.each do |cat|
         .list-group-item
