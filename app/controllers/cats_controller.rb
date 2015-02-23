@@ -11,7 +11,7 @@ class CatsController < ActionController::Base
 
   def show
     cat = Cat.find(params[:id])
-    @tovars = Tovar.where(:cat_id => cat.children)
+    @tovars = Tovar.where(:cat_id => cat.children).preload(:pics)
     cat.parents.each do |one|
       add_breadcrumb one.name, cat_path(one)
     end

@@ -1,5 +1,5 @@
 class Cat < ActiveRecord::Base
-  after_save :count_fold
+  before_save :count_fold
   #default_scope { order("position asc") }
   scope :active, -> { where(:active => true)}
   scope :root, -> {where(:cat_id => 0)}
@@ -26,13 +26,12 @@ class Cat < ActiveRecord::Base
 
   def count_fold
     fold = 0
-    cur = Cat.find(self.id)
+    cur = self
     while cur.cat.present?
       fold += 1
       cur = cur.cat
     end
     self.fold = fold
-    #Cat.find(self.id).update_attributes(:fold => fold)
   end
 
   def getchildids(ids, id)
