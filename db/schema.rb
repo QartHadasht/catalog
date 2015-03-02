@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218153631) do
+ActiveRecord::Schema.define(version: 20150302202855) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -49,14 +49,22 @@ ActiveRecord::Schema.define(version: 20150218153631) do
     t.integer  "tovar_id",           limit: 4
   end
 
+  create_table "settings", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "value",      limit: 255
+    t.string   "alias",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "tovars", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
     t.string   "art",         limit: 255
-    t.integer  "price",       limit: 4
+    t.decimal  "price",                     precision: 8, scale: 2
     t.integer  "cat_id",      limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.integer  "oid",         limit: 4
   end
 

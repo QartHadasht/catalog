@@ -15,6 +15,10 @@ ru:
         active: Активен?
       pic:
         image: Фото
+      setting:
+        name: Название
+        value: Значение
+        alias: Код
     models:
       user:
         one: Пользователь
@@ -36,6 +40,11 @@ ru:
         many: Изображений
         few: Изображения
         other: Изображения
+      setting:
+        one: Настройка
+        many: Настроек
+        few: Настройки
+        other: Настройки
   active_admin:
     dashboard: Главная
     dashboard_welcome:

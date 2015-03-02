@@ -5,6 +5,8 @@ class CatsController < ActionController::Base
   add_breadcrumb "Главная", :root_path
 
 
+
+
   def index
     #@cats = Cat.root
   end
