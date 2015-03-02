@@ -3,4 +3,7 @@
     .tile.col-sm-6.col-md-4.col-lg-3
       a.thumbnail href=(tovar_path(tovar))
         = image_tag tovar.pics.first.image.url if tovar.pics.first.present?
-        = tovar.name
+        .tile_name = tovar.name
+        .tile_price 
+          = tovar.price2
+          '  руб

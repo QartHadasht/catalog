@@ -74,6 +74,21 @@ body
     float: none !important
     display: inline-block !important
     margin: 0 -0.125em !important
+    .thumbnail
+      &:hover
+        text-decoration: none
+        .tile_name
+          text-decoration: underline
+
+  .tile_price
+    text-align: right
+    font-weight: bold
+    text-decoration: none
+    border-top: 1px solid #ddd
+    margin: 0 -4px
+    padding-right: 4px
+    padding-top: 4px
+    line-height: 14px
  
 .breadcrumbs
   margin-bottom: 20px
