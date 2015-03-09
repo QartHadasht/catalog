@@ -2,24 +2,20 @@ h1 = @tovar.name
 .row.tovar
   .col-sm-5.col-lg-4
     - if @tovar.pics.first.present?
-      .thumbnail data-toggle="modal" data-target="#picModal"
-        = image_tag @tovar.pics.first.image.url 
+      = link_to @tovar.pics.first.image.url(:big), :class=> "thumbnail"
+        = image_tag @tovar.pics.first.image.url(:thumb)
   .col-sm-7.col-lg-8
     .tovar_description = @tovar.description
+    .tovar_artikul
+      ' Артикул: 
+      = @tovar.art
     .tovar_price
       b Цена: 
       = @tovar.price2
       '  руб
 
 
-#picModal.modal.fade aria-hidden="true" aria-labelledby="picModalLabel" role="dialog" tabindex="-1" 
-  .modal-dialog
-    .modal-content
-      .modal-header
-        button.close aria-label="Close" data-dismiss="modal" type="button" 
-          span aria-hidden="true"  &times;
-        h4#picModalLabel.modal-title = @tovar.name
-      .modal-body
-        = image_tag @tovar.pics.first.image.url if @tovar.pics.first.present?
-      .modal-footer
-        button.btn.btn-default data-dismiss="modal" type="button"  Закрыть
+javascript:
+  $(document).ready(function(){
+    $(".tovar .thumbnail").colorbox({ maxWidth: "100%"});
+  })
