@@ -40,4 +40,13 @@ ActiveAdmin.register Page do
     f.actions
   end
 
+
+  index do
+    id_column
+    column :title
+    column :location
+    actions
+  end
+
+
 end
