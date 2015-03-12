@@ -4,8 +4,10 @@ module ApplicationHelper
   end
 
   def parents_list
-    return Tovar.find(params[:id]).cat.parents.map(&:id) + [Tovar.find(params[:id]).cat.id] if params[:action] == 'tovar'
-    return Cat.find(params[:id]).parents.map(&:id) + [Cat.find(params[:id]).id] if ['show'].include?params[:action]
+    if params[:controller] == 'cats'
+      return Tovar.find(params[:id]).cat.parents.map(&:id) + [Tovar.find(params[:id]).cat.id] if params[:action] == 'tovar'
+      return Cat.find(params[:id]).parents.map(&:id) + [Cat.find(params[:id]).id] if ['show'].include?params[:action]
+    end
     return []
   end
 

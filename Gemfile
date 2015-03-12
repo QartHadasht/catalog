@@ -35,6 +35,7 @@ gem "nokogiri"
 gem 'acts_as_list'
 gem 'activeadmin-sortable'
 gem 'colorbox-rails'
+gem 'ckeditor'
 
 # Use Capistrano for deployment
 #gem 'capistrano-rails', group: :development

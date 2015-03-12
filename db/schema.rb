@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302202855) do
+ActiveRecord::Schema.define(version: 20150312142845) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -40,6 +40,17 @@ ActiveRecord::Schema.define(version: 20150302202855) do
   end
 
   add_index "cats", ["cat_id"], name: "index_cats_on_cat_id", using: :btree
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "location",    limit: 255
+    t.string   "title",       limit: 255
+    t.text     "text",        limit: 65535
+    t.string   "description", limit: 255
+    t.string   "keywords",    limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "pics", force: :cascade do |t|
     t.string   "image_file_name",    limit: 255

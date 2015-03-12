@@ -2,13 +2,15 @@ class CatsController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   layout "application"
-  add_breadcrumb "Главная", :root_path
+  add_breadcrumb "izmedi.ru", :root_path
 
 
 
 
   def index
     #@cats = Cat.root
+    page = Page.where(:location => 'index').first
+    @text = page.text if page.present?
   end
 
   def show

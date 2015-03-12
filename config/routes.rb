@@ -57,6 +57,9 @@ Rails.application.routes.draw do
   #   end
   resources :cats, :only => [:index, :show], :path => 'catalog' do
   end
+  resources :pages, :only => [:show], :path => 'page' do
+  end
   get "/show/:id" => 'cats#tovar', :as => 'tovar'
+
 
 end
