@@ -1,8 +1,8 @@
 .menu.navbar.navbar-default
   ul.nav.navbar-nav
-    li
+    li class=("active" if current_page?(root_url))
       a href="/" Главная
-    li
+    li class=("active" if params[:controller] == 'pages' && params[:id] == 'ship')
       a href="/page/ship" Оплата и доставка      
-    li
+    li class=("active" if params[:controller] == 'pages' && params[:id] == 'contacts')
       a href="/page/contacts" Контакты
