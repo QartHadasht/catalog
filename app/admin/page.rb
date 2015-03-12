@@ -1,6 +1,22 @@
 ActiveAdmin.register Page do
 
+  around_filter do |controller, action|
+    Page.class_eval do
+      def to_param
+        id.to_s
+      end
+    end
 
+    begin
+      action.call
+    ensure
+      Page.class_eval do
+        def to_param
+          location
+        end
+      end
+    end
+  end
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
