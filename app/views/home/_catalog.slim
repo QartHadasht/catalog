@@ -13,7 +13,7 @@
               = link_to cat.name, cat_path(cat)          
           - else
             .catalog_menu_src class=('catalog_menu_active' if parents.include?(cat.id))
-              .catalog_menu_expand data-slide-src=("c#{cat.id}")
+              /.catalog_menu_expand data-slide-src=("c#{cat.id}")
               - if parents.last == cat.id
                 = cat.name
               - else
